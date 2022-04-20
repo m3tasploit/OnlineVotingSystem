@@ -150,14 +150,11 @@ public class Postview extends AppCompatActivity implements AdapterView.OnItemCli
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        if (timeN.after(timeA)) {
+        if (false) {
 
             Toast.makeText(getApplicationContext(), "Time over.......", Toast.LENGTH_LONG).show();
 
-        } else if (timeN.before(timeb)) {
-            Toast.makeText(getApplicationContext(), "Voting will start soon.......", Toast.LENGTH_LONG).show();
-
-        } else {
+        }  else {
             SharedPreferences sh = getApplicationContext().getSharedPreferences("MyApp", MODE_APPEND);
             SharedPreferences.Editor ed = sh.edit();
             ed.putString("postid", postid[i]);

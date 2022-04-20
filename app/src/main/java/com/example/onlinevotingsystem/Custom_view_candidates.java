@@ -101,13 +101,11 @@ public class Custom_view_candidates extends BaseAdapter {
                                 try {
                                     JSONObject jsonObj = new JSONObject(response);
                                     if (jsonObj.getString("status").equalsIgnoreCase("ok")) {
-                                        Intent ic = new Intent(context, Postview.class);
+                                        Toast.makeText(context, "Vote casted successfully", Toast.LENGTH_LONG).show();
+                                        Intent ic = new Intent(context, Home.class);
                                         ic.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                         context.startActivity(ic);
-
                                     }
-
-                                    // }
                                     else {
                                         Toast.makeText(context, "Not found", Toast.LENGTH_LONG).show();
                                     }
