@@ -75,7 +75,7 @@ public class ViewCandidate extends AppCompatActivity {
                             }
 
                 else {
-                                Toast.makeText(getApplicationContext(), "Not found", Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), "You already voted", Toast.LENGTH_LONG).show();
                             }
 
                         } catch (Exception e) {
