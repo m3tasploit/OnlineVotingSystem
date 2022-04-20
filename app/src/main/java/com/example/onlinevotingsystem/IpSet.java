@@ -54,7 +54,7 @@ public class IpSet extends AppCompatActivity implements View.OnClickListener {
         if (ipval.equals("")) {
             ed.setError("enter ip..");
         } else {
-            SharedPreferences sh = getApplicationContext().getSharedPreferences("MyApp", MODE_PRIVATE);
+            SharedPreferences sh = getApplicationContext().getSharedPreferences("MyApp", MODE_APPEND);
             SharedPreferences.Editor ed = sh.edit();
             ed.putString("ip", ipval);
             ed.commit();

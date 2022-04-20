@@ -33,7 +33,6 @@ import java.util.Map;
 public class Postview extends AppCompatActivity implements AdapterView.OnItemClickListener {
     ListView L2;
     String[] postid, post;
-    private final Context context = getApplicationContext();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +57,7 @@ public class Postview extends AppCompatActivity implements AdapterView.OnItemCli
         // String curtime=mytim[1];
         // Toast.makeText(this, curtime, Toast.LENGTH_SHORT).show();
 
-        SharedPreferences sh = context.getSharedPreferences("MyApp", Context.MODE_PRIVATE);
+        SharedPreferences sh = getApplicationContext().getSharedPreferences("MyApp", Context.MODE_APPEND);
         String hu = sh.getString("ip", "");
         String url = "http://" + hu + ":5000/view_candidate";
 
@@ -109,7 +108,7 @@ public class Postview extends AppCompatActivity implements AdapterView.OnItemCli
                 }) {
             @Override
             protected Map<String, String> getParams() {
-                SharedPreferences sh = getApplicationContext().getSharedPreferences("MyApp", MODE_PRIVATE);
+                SharedPreferences sh = getApplicationContext().getSharedPreferences("MyApp", MODE_APPEND);
                 Map<String, String> params = new HashMap<String, String>();
 
                 String id = sh.getString("uid", "");
@@ -141,7 +140,7 @@ public class Postview extends AppCompatActivity implements AdapterView.OnItemCli
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        String attTime = "05:00:00";
+        String attTime = "22:00:00";
         String attTime_1 = "10:00:00";
         Date timeA = null;
         Date timeb = null;
@@ -159,7 +158,7 @@ public class Postview extends AppCompatActivity implements AdapterView.OnItemCli
             Toast.makeText(getApplicationContext(), "Voting will start soon.......", Toast.LENGTH_LONG).show();
 
         } else {
-            SharedPreferences sh = getApplicationContext().getSharedPreferences("MyApp", MODE_PRIVATE);
+            SharedPreferences sh = getApplicationContext().getSharedPreferences("MyApp", MODE_APPEND);
             SharedPreferences.Editor ed = sh.edit();
             ed.putString("postid", postid[i]);
             ed.commit();

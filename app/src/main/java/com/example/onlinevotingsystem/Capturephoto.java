@@ -33,7 +33,7 @@ public class Capturephoto extends AppCompatActivity implements View.OnClickListe
 
     ImageView img;
     Button bt;
-    private final Context context = getApplicationContext();
+    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +42,8 @@ public class Capturephoto extends AppCompatActivity implements View.OnClickListe
 
         img = (ImageView) findViewById(R.id.imageView2);
         bt = (Button) findViewById(R.id.button5);
+
+        this.context = getApplicationContext();
 
         img.setOnClickListener(this);
         bt.setOnClickListener(this);
@@ -53,7 +55,7 @@ public class Capturephoto extends AppCompatActivity implements View.OnClickListe
             open();
         } else {
 
-            SharedPreferences sh = context.getSharedPreferences("MyApp", Context.MODE_PRIVATE);
+            SharedPreferences sh = context.getSharedPreferences("MyApp", Context.MODE_APPEND);
             String hu = sh.getString("ip", "");
             String url = "http://" + hu + ":5000/face_recognition";
 
@@ -71,7 +73,7 @@ public class Capturephoto extends AppCompatActivity implements View.OnClickListe
 
                                     String stuid = jsonObj.getString("id");
 
-                                    SharedPreferences sh = context.getSharedPreferences("MyApp", Context.MODE_PRIVATE);
+                                    SharedPreferences sh = context.getSharedPreferences("MyApp", Context.MODE_APPEND);
                                     SharedPreferences.Editor ed = sh.edit();
                                     ed.putString("uid", stuid);
                                     ed.commit();

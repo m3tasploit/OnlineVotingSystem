@@ -28,7 +28,6 @@ public class ViewWinner extends AppCompatActivity {
     String[] pname;
     String[] yfrom;
     String[] yto;
-    private final Context context = getApplicationContext();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +35,8 @@ public class ViewWinner extends AppCompatActivity {
         setContentView(R.layout.activity_view_winner);
         L1 = (ListView) findViewById(R.id.lst22);
 
-        SharedPreferences sh = context.getSharedPreferences("MyApp", Context.MODE_PRIVATE);
+        SharedPreferences sh = getApplicationContext().getSharedPreferences("MyApp", Context.MODE_APPEND);
         String hu = sh.getString("ip", "");
-        final String pd = sh.getString("postid", "");
 
         String url = "http://" + hu + ":5000/view_winner";
 

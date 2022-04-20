@@ -29,7 +29,6 @@ import java.util.Map;
 
 public class ViewProfile extends AppCompatActivity {
     ImageView I1;
-    private final Context context = getApplicationContext();
     TextView name, admno, course, semester, gender, guardian, dob, phoneno, email;
 
     @Override
@@ -47,7 +46,7 @@ public class ViewProfile extends AppCompatActivity {
         phoneno = (TextView) findViewById(R.id.textView10);
         email = (TextView) findViewById(R.id.textView12);
 
-        final SharedPreferences sh = context.getSharedPreferences("MyApp", Context.MODE_PRIVATE);
+        final SharedPreferences sh = getApplicationContext().getSharedPreferences("MyApp", Context.MODE_APPEND);
 
         String hu = sh.getString("ip", "");
 
@@ -119,9 +118,10 @@ public class ViewProfile extends AppCompatActivity {
                 }) {
             @Override
             protected Map<String, String> getParams() {
-                SharedPreferences shp = context.getSharedPreferences("MyApp", Context.MODE_PRIVATE);
+                SharedPreferences shp = getApplicationContext().getSharedPreferences("MyApp", Context.MODE_APPEND);
                 Map<String, String> params = new HashMap<String, String>();
                 String uid = shp.getString("uid", "");
+                name.setText(uid);
                 params.put("idd", uid);
 
                 return params;

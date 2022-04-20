@@ -26,7 +26,6 @@ public class NotificationView extends AppCompatActivity {
     ListView L1;
     String[] notid;
     String[] notcont, date, exp_date;
-    private final Context context = getApplicationContext();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +35,7 @@ public class NotificationView extends AppCompatActivity {
         L1 = (ListView) findViewById(R.id.ListView);
         // L1.setOnItemClickListener(this);
 
-        SharedPreferences sh = context.getSharedPreferences("MyApp", Context.MODE_PRIVATE);
+        SharedPreferences sh = getApplicationContext().getSharedPreferences("MyApp", Context.MODE_APPEND);
         String hu = sh.getString("ip", "");
         String url = "http://" + hu + ":5000/View_notification";
 
@@ -91,7 +90,7 @@ public class NotificationView extends AppCompatActivity {
                 }) {
             @Override
             protected Map<String, String> getParams() {
-                SharedPreferences sh = getApplicationContext().getSharedPreferences("MyApp", MODE_PRIVATE);
+                SharedPreferences sh = getApplicationContext().getSharedPreferences("MyApp", MODE_APPEND);
                 Map<String, String> params = new HashMap<String, String>();
 
                 String id = sh.getString("uid", "");

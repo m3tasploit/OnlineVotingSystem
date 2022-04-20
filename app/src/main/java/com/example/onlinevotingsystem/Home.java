@@ -13,8 +13,6 @@ import android.content.Context;
 
 public class Home extends AppCompatActivity {
     private TextView mTextMessage;
-    private final Context context = getApplicationContext();
-
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
@@ -55,12 +53,6 @@ public class Home extends AppCompatActivity {
         BottomNavigationView navView = findViewById(R.id.nav_view);
         mTextMessage = findViewById(R.id.message);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
-        // loginid
-        SharedPreferences sh = context.getSharedPreferences("MyApp", Context.MODE_PRIVATE);
-        SharedPreferences.Editor ed = sh.edit();
-        ed.putString("uid", "0");
-        ed.commit();
 
     }
 

@@ -27,7 +27,6 @@ public class ViewCandidate extends AppCompatActivity {
     ListView L;
     String[] name;
     String[] id;
-    private final Context context = getApplicationContext();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +34,7 @@ public class ViewCandidate extends AppCompatActivity {
         setContentView(R.layout.activity_view_candidate);
         L = (ListView) findViewById(R.id.lsd);
 
-        SharedPreferences sh = context.getSharedPreferences("MyApp", Context.MODE_PRIVATE);
+        SharedPreferences sh = getApplicationContext().getSharedPreferences("MyApp", Context.MODE_APPEND);
         String hu = sh.getString("ip", "");
         final String pd = sh.getString("postid", "");
 
