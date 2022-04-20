@@ -85,7 +85,8 @@ public class Custom_view_candidates extends BaseAdapter {
             @Override
             public void onClick(View view) {
                 final String candid = btn.getTag().toString();
-                SharedPreferences sh = context.getApplicationContext().getSharedPreferences("MyApp", Context.MODE_APPEND);
+                SharedPreferences sh = context.getApplicationContext().getSharedPreferences("MyApp",
+                        Context.MODE_PRIVATE);
                 String hu = sh.getString("ip", "");
                 String url = "http://" + hu + ":5000/cast_vote";
 
@@ -127,7 +128,7 @@ public class Custom_view_candidates extends BaseAdapter {
                     @Override
                     protected Map<String, String> getParams() {
                         Context context1 = context.getApplicationContext();
-                        SharedPreferences sh = context1.getSharedPreferences("MyApp", Context.MODE_APPEND);
+                        SharedPreferences sh = context1.getSharedPreferences("MyApp", Context.MODE_PRIVATE);
                         Map<String, String> params = new HashMap<String, String>();
 
                         params.put("stuid", sh.getString("uid", ""));

@@ -36,7 +36,7 @@ public class ViewWinner extends AppCompatActivity {
         setContentView(R.layout.activity_view_winner);
         L1 = (ListView) findViewById(R.id.lst22);
 
-        SharedPreferences sh = context.getSharedPreferences("MyApp", Context.MODE_APPEND);
+        SharedPreferences sh = context.getSharedPreferences("MyApp", Context.MODE_PRIVATE);
         String hu = sh.getString("ip", "");
         final String pd = sh.getString("postid", "");
 
@@ -59,7 +59,6 @@ public class ViewWinner extends AppCompatActivity {
                                 pname = new String[js.length()];
                                 yfrom = new String[js.length()];
                                 yto = new String[js.length()];
-
                                 for (int i = 0; i < js.length(); i++) {
                                     JSONObject u = js.getJSONObject(i);
                                     cname[i] = u.getString("studentname");

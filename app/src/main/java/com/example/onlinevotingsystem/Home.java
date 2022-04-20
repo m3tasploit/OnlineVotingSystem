@@ -57,7 +57,7 @@ public class Home extends AppCompatActivity {
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         // loginid
-        SharedPreferences sh = context.getSharedPreferences("MyApp", Context.MODE_APPEND);
+        SharedPreferences sh = context.getSharedPreferences("MyApp", Context.MODE_PRIVATE);
         SharedPreferences.Editor ed = sh.edit();
         ed.putString("uid", "0");
         ed.commit();

@@ -47,7 +47,7 @@ public class ViewProfile extends AppCompatActivity {
         phoneno = (TextView) findViewById(R.id.textView10);
         email = (TextView) findViewById(R.id.textView12);
 
-        final SharedPreferences sh = context.getSharedPreferences("MyApp", Context.MODE_APPEND);
+        final SharedPreferences sh = context.getSharedPreferences("MyApp", Context.MODE_PRIVATE);
 
         String hu = sh.getString("ip", "");
 
@@ -119,7 +119,7 @@ public class ViewProfile extends AppCompatActivity {
                 }) {
             @Override
             protected Map<String, String> getParams() {
-                SharedPreferences shp = context.getSharedPreferences("MyApp", Context.MODE_APPEND);
+                SharedPreferences shp = context.getSharedPreferences("MyApp", Context.MODE_PRIVATE);
                 Map<String, String> params = new HashMap<String, String>();
                 String uid = shp.getString("uid", "");
                 params.put("idd", uid);

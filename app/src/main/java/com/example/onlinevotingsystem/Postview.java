@@ -58,7 +58,7 @@ public class Postview extends AppCompatActivity implements AdapterView.OnItemCli
         // String curtime=mytim[1];
         // Toast.makeText(this, curtime, Toast.LENGTH_SHORT).show();
 
-        SharedPreferences sh = context.getSharedPreferences("MyApp", Context.MODE_APPEND);
+        SharedPreferences sh = context.getSharedPreferences("MyApp", Context.MODE_PRIVATE);
         String hu = sh.getString("ip", "");
         String url = "http://" + hu + ":5000/view_candidate";
 
@@ -109,7 +109,7 @@ public class Postview extends AppCompatActivity implements AdapterView.OnItemCli
                 }) {
             @Override
             protected Map<String, String> getParams() {
-                SharedPreferences sh = getApplicationContext().getSharedPreferences("MyApp", MODE_APPEND);
+                SharedPreferences sh = getApplicationContext().getSharedPreferences("MyApp", MODE_PRIVATE);
                 Map<String, String> params = new HashMap<String, String>();
 
                 String id = sh.getString("uid", "");
@@ -159,13 +159,12 @@ public class Postview extends AppCompatActivity implements AdapterView.OnItemCli
             Toast.makeText(getApplicationContext(), "Voting will start soon.......", Toast.LENGTH_LONG).show();
 
         } else {
-            SharedPreferences sh = getApplicationContext().getSharedPreferences("MyApp", MODE_APPEND);
+            SharedPreferences sh = getApplicationContext().getSharedPreferences("MyApp", MODE_PRIVATE);
             SharedPreferences.Editor ed = sh.edit();
             ed.putString("postid", postid[i]);
             ed.commit();
             Intent ii = new Intent(getApplicationContext(), ViewCandidate.class);
             startActivity(ii);
-
 
         }
 

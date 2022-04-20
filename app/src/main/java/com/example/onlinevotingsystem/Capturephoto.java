@@ -53,7 +53,7 @@ public class Capturephoto extends AppCompatActivity implements View.OnClickListe
             open();
         } else {
 
-            SharedPreferences sh = context.getSharedPreferences("MyApp", Context.MODE_APPEND);
+            SharedPreferences sh = context.getSharedPreferences("MyApp", Context.MODE_PRIVATE);
             String hu = sh.getString("ip", "");
             String url = "http://" + hu + ":5000/face_recognition";
 
@@ -71,7 +71,7 @@ public class Capturephoto extends AppCompatActivity implements View.OnClickListe
 
                                     String stuid = jsonObj.getString("id");
 
-                                    SharedPreferences sh = context.getSharedPreferences("MyApp", Context.MODE_APPEND);
+                                    SharedPreferences sh = context.getSharedPreferences("MyApp", Context.MODE_PRIVATE);
                                     SharedPreferences.Editor ed = sh.edit();
                                     ed.putString("uid", stuid);
                                     ed.commit();
