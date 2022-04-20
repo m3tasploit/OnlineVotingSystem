@@ -95,7 +95,6 @@ public class ViewWinner extends AppCompatActivity {
                 }) {
             @Override
             protected Map<String, String> getParams() {
-                SharedPreferences sh = context.getSharedPreferences("MyApp", Context.MODE_APPEND);
                 Map<String, String> params = new HashMap<String, String>();
 
                 // params.put("postid",pd);
